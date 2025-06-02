@@ -333,12 +333,10 @@
 			FROM MuonSach m
 			JOIN ThanhVien tv ON m.MaThanhVien = tv.MaThanhVien;
 
-			-- 3. Tìm tất cả sách do tác giả "Nguyễn Nhật Ánh" viết
-			SELECT s.MaSach, s.TenSach
-			FROM Sach s
-			JOIN SachTacGia stg ON s.MaSach = stg.MaSach
-			JOIN TacGia tg ON stg.MaTacGia = tg.MaTacGia
-			WHERE tg.TenTacGia = N'Nguyễn Nhật Ánh';
+			-- 3. Liệt kê các sách đã được mượn
+			SELECT MaSach, TenSach
+			FROM MuonSach
+			JOIN Sach ON MuonSach.MaSach = Sach.MaSach;
 
 	--b.Truy vấn với Aggregate Functions: 7 câu
 
